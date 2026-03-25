@@ -1,0 +1,186 @@
+/* Estilos customizados para o Quiz da Serafina */
+
+/* Fonte infantil e lúdica */
+body {
+    font-family: 'Quicksand', sans-serif;
+}
+
+h1, h2, .result-title {
+    font-family: 'Fredoka', sans-serif;
+}
+
+/* Garantir que todos os botões usem a mesma fonte e sejam mais em negrito */
+button {
+    font-family: 'Quicksand', sans-serif;
+    font-weight: 600;
+}
+
+/* Animação para botões selecionados */
+.scale-98 {
+    transform: scale(0.98);
+}
+
+/* Garantir que os botões desabilitados não mudem de cor ao hover */
+button:disabled {
+    cursor: not-allowed;
+}
+
+/* Efeitos de livro e páginas */
+.book-shadow {
+    box-shadow: 
+        0 2px 4px rgba(0, 0, 0, 0.1),
+        0 8px 16px rgba(0, 0, 0, 0.1),
+        0 16px 32px rgba(0, 0, 0, 0.1),
+        inset 0 0 0 1px rgba(255, 255, 255, 0.5);
+}
+
+.page-decoration {
+    position: relative;
+}
+
+.page-decoration::before {
+    content: "📖";
+    position: absolute;
+    top: -30px;
+    left: 50%;
+    transform: translateX(-50%);
+    font-size: 2rem;
+    opacity: 0.3;
+}
+
+/* Animação de flutuação */
+@keyframes float {
+    0%, 100% {
+        transform: translateY(0px);
+    }
+    50% {
+        transform: translateY(-10px);
+    }
+}
+
+.float-animation {
+    animation: float 3s ease-in-out infinite;
+}
+
+/* Animação de brilho */
+@keyframes sparkle {
+    0%, 100% {
+        opacity: 1;
+        transform: scale(1);
+    }
+    50% {
+        opacity: 0.7;
+        transform: scale(1.1);
+    }
+}
+
+.sparkle-animation {
+    animation: sparkle 2s ease-in-out infinite;
+}
+
+/* Decoração de estrelas */
+.stars-decoration {
+    position: relative;
+}
+
+.stars-decoration::before,
+.stars-decoration::after {
+    content: "⭐";
+    position: absolute;
+    font-size: 1.5rem;
+    opacity: 0.4;
+    animation: sparkle 2s ease-in-out infinite;
+}
+
+.stars-decoration::before {
+    top: -10px;
+    left: -20px;
+    animation-delay: 0.5s;
+}
+
+.stars-decoration::after {
+    top: -10px;
+    right: -20px;
+    animation-delay: 1s;
+}
+
+/* Bordas arredondadas mais suaves para parecer páginas de livro */
+.book-page {
+    border-radius: 20px;
+    position: relative;
+    background: linear-gradient(to bottom, #ffffff, #fffef8);
+}
+
+/* Efeito de sombra interna nas bordas para simular páginas */
+.book-page::after {
+    content: "";
+    position: absolute;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    border-radius: 20px;
+    box-shadow: inset 0 0 20px rgba(0, 0, 0, 0.03);
+    pointer-events: none;
+}
+
+/* Botões mais lúdicos */
+.playful-button {
+    position: relative;
+    overflow: hidden;
+}
+
+.playful-button::before {
+    content: "";
+    position: absolute;
+    top: 50%;
+    left: 50%;
+    width: 0;
+    height: 0;
+    border-radius: 50%;
+    background: rgba(255, 255, 255, 0.3);
+    transform: translate(-50%, -50%);
+    transition: width 0.6s, height 0.6s;
+}
+
+.playful-button:hover::before {
+    width: 300px;
+    height: 300px;
+}
+
+/* Cores vibrantes para os badges */
+.trait-badge-colorful {
+    background: linear-gradient(135deg, #fef3c7 0%, #fde68a 100%);
+    border: 2px solid #fbbf24;
+    color: #92400e;
+    font-weight: 600;
+    box-shadow: 0 2px 4px rgba(251, 191, 36, 0.2);
+}
+
+/* Texto com sombra suave para dar profundidade */
+.text-with-depth {
+    text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+/* Decoração de corações flutuantes */
+@keyframes float-hearts {
+    0% {
+        transform: translateY(0) rotate(0deg);
+        opacity: 0;
+    }
+    50% {
+        opacity: 1;
+    }
+    100% {
+        transform: translateY(-100px) rotate(360deg);
+        opacity: 0;
+    }
+}
+
+/* Background pattern de livros */
+.books-pattern {
+    background-image: 
+        radial-gradient(circle at 20% 80%, rgba(251, 207, 232, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 80% 20%, rgba(233, 213, 255, 0.3) 0%, transparent 50%),
+        radial-gradient(circle at 40% 40%, rgba(219, 234, 254, 0.3) 0%, transparent 50%);
+}
