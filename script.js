@@ -79,16 +79,23 @@ const personalityResults = {
         emoji: "😅",
         color: "purple",
         bgColor: "bg-purple-200",
-        description: "Você errou alguma, mas eu ainda te amo!"
+        description: "Você errou uma ou duas, mas eu ainda te amo!"
     },
     C: {
         title: "Você não me conhece tanto...",
         emoji: "🙁",
         color: "blue",
         bgColor: "bg-blue-200",
-        description: "Errou muitas e não merece beijinhos...",
+        description: "Errou mais de duas e não merece tantos beijinhos...",
     },
     D: {
+        title: "Você não me conhece tanto...",
+        emoji: "😭",
+        color: "red",
+        bgColor: "bg-red-200",
+        description: "Errou muitas e tá merecendo nem abraço...",
+    },
+    E: {
         title: "VOCÊ ME ODEIA!",
         emoji: "😡",
         color: "orange",
@@ -227,17 +234,23 @@ function selectOption(personality, optionIndex) {
 
 // Função para calcular a personalidade
 function calculatePersonality() {
-    const counts = { A: 0, B: 0, C: 0, D: 0 };
-    
-    answers.forEach(answer => {
-        counts[answer]++;
-    });
-    
-    const dominantLetter = Object.keys(counts).reduce((a, b) =>
-        counts[a] > counts[b] ? a : b
-    );
-    
-    return personalityResults[dominantLetter];
+    const points = { A: 3, B: 2, C: 1, D: 0 };
+
+    const score = answers.reduce((total, answer) => {
+        return total + points[answer];
+    }, 0);
+
+    if (score == 21) {
+        return personalityResults.A;
+    } else if (score >= 15) {
+        return personalityResults.B;
+    } else if (score >=7) {
+        return personalityResults.C;
+    } else if (score >=5) {
+        return personalityResults.D;
+    } else {
+        return personalityResults.E;
+    }
 }
 
 // Função para renderizar a tela de resultados
